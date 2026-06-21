@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威廉希尔 · 信息导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f9e7d2 0%, #f4d1b0 50%, #ecb88a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #2c241c;
+        }
+
+        .card-wrapper {
+            max-width: 980px;
+            width: 100%;
+            background: rgba(255, 250, 242, 0.75);
+            backdrop-filter: blur(6px);
+            border-radius: 48px 24px 48px 24px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 40, 0.25);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #7a4a2e, #b5774a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5a4436;
+            max-width: 600px;
+            margin: 0.8rem auto 0;
+            border-top: 2px solid #e6c9ae;
+            padding-top: 1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
+            margin: 2.4rem 0 2rem;
+        }
+
+        .info-card {
+            background: #fffffffa;
+            border-radius: 32px 12px 32px 12px;
+            padding: 1.8rem 1.4rem 1.6rem;
+            box-shadow: 0 6px 14px rgba(140, 90, 50, 0.10);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0ded1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 26px -8px rgba(130, 75, 40, 0.18);
+            border-color: #dbb99a;
+        }
+
+        .info-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #633f27;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.7rem;
+        }
+
+        .info-card h3 span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #dba477;
+            border-radius: 50%;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #3f3229;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-card .badge {
+            display: inline-block;
+            background: #ebd4c0;
+            color: #4d3627;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            margin-top: 0.6rem;
+        }
+
+        .context-block {
+            background: #f7ede4;
+            border-radius: 28px 10px 28px 10px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 1.4rem;
+            border-left: 6px solid #cb9d78;
+        }
+
+        .context-block p {
+            font-size: 1rem;
+            color: #2f241c;
+            margin-bottom: 0.6rem;
+        }
+
+        .context-block a {
+            color: #864e2b;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .context-block a:hover {
+            border-bottom-color: #b87a4e;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+
+        .faq-item {
+            background: #fcf6ef;
+            padding: 1rem 1.4rem;
+            border-radius: 30px 8px 30px 8px;
+            border: 1px solid #e7d3c1;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #633f27;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item span {
+            font-size: 0.9rem;
+            color: #42352b;
+        }
+
+        .soft-link-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b5443;
+            border-top: 1px dashed #dabdab;
+            padding-top: 1.6rem;
+        }
+
+        .soft-link-note a {
+            color: #6f432b;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 1px solid #bc9279;
+            transition: all 0.2s;
+        }
+
+        .soft-link-note a:hover {
+            color: #3f2a1d;
+            border-bottom: 1px solid #7c553c;
+        }
+
+        .button-tag {
+            display: inline-block;
+            background: #ffffffd9;
+            border: 1px solid #d1b09a;
+            border-radius: 60px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #4f3829;
+            box-shadow: 0 2px 6px rgba(150, 95, 55, 0.06);
+            letter-spacing: 0.3px;
+            transition: background 0.2s, box-shadow 0.2s;
+            cursor: default;
+        }
+
+        .button-tag:hover {
+            background: #f1e2d6;
+            box-shadow: 0 4px 10px rgba(130, 75, 40, 0.08);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card-wrapper {
+                padding: 1.6rem 1.2rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .context-block {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-wrapper">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>威廉希尔</h1>
+        <p>信息导览 · 稳定索引 · 用途速览</p>
+    </div>
+
+    <!-- 信息卡片区：用途 / 适合人群 / 场景 -->
+    <div class="card-grid">
+        <div class="info-card">
+            <h3><span></span> 用途定位</h3>
+            <p>提供体育赛事、娱乐资讯及综合信息索引服务，用户可通过站内模块快速定位感兴趣的内容板块。</p>
+            <div class="badge">综合信息枢纽</div>
+        </div>
+        <div class="info-card">
+            <h3><span></span> 适合人群</h3>
+            <p>对体育动态、赛事数据、休闲信息有稳定查阅需求的用户，以及希望保持信息渠道简洁明确的浏览者。</p>
+            <div class="badge">体育资讯 · 泛娱乐</div>
+        </div>
+        <div class="info-card">
+            <h3><span></span> 典型场景</h3>
+            <p>日常信息检索、赛前数据参考、休闲时段浏览。界面布局清晰，便于快速定位目标内容。</p>
+            <div class="badge">快速浏览 · 参考查询</div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + 稳定入口说明 -->
+    <div class="context-block">
+        <p>对于长期关注体育动态与综合资讯的用户，保持一个稳定且直达的访问路径尤为重要。通过 <a href="https://goto-williamhill.com">威廉希尔</a> 可以直接进入主站，省去中间跳转步骤，让信息获取更加直接高效。</p>
+        <p>该入口适合作为日常书签或访问起点，页面结构围绕内容导航设计，减少冗余干扰，聚焦用户实际所需。</p>
+    </div>
+
+    <!-- FAQ 摘要（小提示风格） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>◈ 访问是否稳定？</strong>
+            <span>建议使用主流浏览器，并保持网络环境通畅。主站域名固定，适合收藏。</span>
+        </div>
+        <div class="faq-item">
+            <strong>◈ 内容更新频率？</strong>
+            <span>与赛事及资讯动态同步，信息模块按实际节奏更新，可定期浏览。</span>
+        </div>
+        <div class="faq-item">
+            <strong>◈ 是否需要注册？</strong>
+            <span>部分功能或板块可能需要注册账号，具体以站内指引为准。</span>
+        </div>
+    </div>
+
+    <!-- 辅助标签 + 二次自然链接（不重复锚文本） -->
+    <div class="soft-link-note">
+        <span class="button-tag">信息卡</span>
+        <span class="button-tag" style="margin-left: 8px;">稳定直达</span>
+        <span class="button-tag" style="margin-left: 8px;">简洁索引</span>
+        <div style="margin-top: 1rem; font-size: 0.95rem;">
+            如希望直接访问资源，可使用 <a href="https://goto-williamhill.com">威廉希尔</a> 作为首选链接，体验统一导航布局。
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
